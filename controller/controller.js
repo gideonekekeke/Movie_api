@@ -34,7 +34,7 @@ const postStudent = async (req, res) => {
       title: req.body.title,
       description: req.body.description,
       price: req.body.price,
-      image: req.file.path,
+      image: req.body.image,
     });
     res.json({ student });
   } catch (err) {
@@ -67,7 +67,7 @@ const deleteStudent = async (req, res) => {
 
 const delectingAll = async (req, res) => {
   try {
-    const delAll = await studentModel.deleteMany();
+    const delAll = await films.deleteMany();
     res.json({ message: "all student has been delected" });
   } catch (err) {
     res.status(500).json({ message: err.message });
